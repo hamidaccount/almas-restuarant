@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الماس رستورانت و مهمان‌خانه</title>
+<style>
+  body { font-family: Tahoma, sans-serif; text-align: center; padding: 60px; background: #fafafa; }
+  .box { background: #fff; border: 1px solid #ddd; border-radius: 12px; padding: 30px; max-width: 500px; margin: auto; }
+  .ok { color: green; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h1>الماس رستورانت و مهمان‌خانه</h1>
+  <p>سرور بک‌اند فاز ۱ فعال است.</p>
+  <p class="ok" id="status">در حال بررسی...</p>
+  <p><a href="/api/health">وضعیت API</a> | <a href="/api/menu">منو</a> | <a href="/api/rooms">اتاق‌ها</a></p>
+</div>
+<script>
+fetch('/api/health').then(r => r.json()).then(j => {
+  document.getElementById('status').textContent = 'سرور کار می‌کند: ' + j.time;
+}).catch(() => {
+  document.getElementById('status').textContent = 'خطا در اتصال به API';
+});
+</script>
+</body>
+</html>

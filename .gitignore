@@ -1,0 +1,14 @@
+# deps
+node_modules/
+**/node_modules/
+
+# live sqlite - recreated/seeded by db.js on first run
+*.db-shm
+*.db-wal
+almas_database/data/*.db
+almas_database/data/*.db-shm
+almas_database/data/*.db-wal
+
+# env / OS
+.env
+.DS_Store
